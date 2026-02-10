@@ -1,24 +1,62 @@
-# CLI-Calculator-Python
-A beginner-friendly Python CLI calculator with clean logic and error handling
+def add(a, b):
+    return a + b
 
-# 🧮 CLI Calculator
+def subtract(a, b):
+    return a - b
 
-A beginner-friendly command-line calculator built in Python to perform basic arithmetic operations with input validation and error handling.
+def multiply(a, b):
+    return a * b
 
----
+def divide (a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero"
 
-## 📌 Features
+def modulo(a, b):
+    return a % b
 
-- ➕ Add, ➖ Subtract, ✖ Multiply, ➗ Divide
-- 🔁 Runs in a continuous loop until user exits
-- 🛡️ Handles invalid inputs (letters instead of numbers)
-- 🚫 Protects against division by zero
-- 📂 Fully modular with reusable functions
+def pow(a, b):
+    return a ** b
+    
+print("Welcome to CLI Calculator")
 
----
+while True:
+    print("\nSelect operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Modulo") 
+    print("6. Power")
+    print("7. Exit")
 
-## 🚀 How to Run
+    choice = input("Enter choice (1/2/3/4/5/6/7): ")
 
-```bash
-python calculator.py
-```
+    if choice == '7':
+        print("Exiting the calculator. Happy calculating!")
+        break
+
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    except ValueError:
+        print("Invalid input. Please enter numeric values only.")
+        continue
+
+    if choice == '1':
+        print("Result:", add(num1, num2))
+    elif choice == '2':
+        print("Result:", subtract(num1, num2))
+    elif choice == '3':
+        print("Result:", multiply(num1, num2))
+    elif choice == '4':
+        print("Result:", divide(num1, num2))
+    elif choice == '5':
+        print("Result:", modulo(num1, num2))
+    elif choice == '6':
+        print("Result:", pow(num1, num2))
+    else:
+        print("Invalid choice. Please select a valid option.")
+
+
